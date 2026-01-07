@@ -1,14 +1,13 @@
-
 import { Car, Inquiry, PreOrder, Testimonial, HeroMedia } from '../types.ts';
 import { INITIAL_CARS, INITIAL_TESTIMONIALS, INITIAL_HERO_MEDIA } from '../mockData.ts';
 
 // Simulated DB state using localStorage
 const STORAGE_KEYS = {
-  CARS: 'emphathon_cars',
-  INQUIRIES: 'emphathon_inquiries',
-  PRE_ORDERS: 'emphathon_preorders',
-  TESTIMONIALS: 'emphathon_testimonials',
-  HERO_MEDIA: 'emphathon_hero_media'
+  CARS: 'empathon_cars',
+  INQUIRIES: 'empathon_inquiries',
+  PRE_ORDERS: 'empathon_preorders',
+  TESTIMONIALS: 'empathon_testimonials',
+  HERO_MEDIA: 'empathon_hero_media'
 };
 
 const getFromStorage = <T,>(key: string, initialValue: T): T => {

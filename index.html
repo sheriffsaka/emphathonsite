@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empathon | Luxury Automotive</title>
+    <title>Empathon | Ultra-Luxury Automotive</title>
     <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
     "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react",
@@ -21,76 +20,70 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
               brand: {
                 orange: '#D16B1B',
-                blue: '#1D2D50',
-                dark: '#050505'
+                gold: '#C5A059',
+                dark: '#050505',
+                card: '#0F0F0F'
               }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
             },
             animation: {
-              'fade-in': 'fadeIn 0.8s ease-out forwards',
-              'slide-up': 'slideUp 0.6s ease-out forwards',
-              'shimmer': 'shimmer 2s infinite linear',
+              'fade-in': 'fadeIn 1s ease-out forwards',
+              'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             },
             keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              slideUp: {
-                '0%': { transform: 'translateY(20px)', opacity: '0' },
-                '100%': { transform: 'translateY(0)', opacity: '1' },
-              },
-              shimmer: {
-                '0%': { backgroundPosition: '-1000px 0' },
-                '100%': { backgroundPosition: '1000px 0' },
-              }
+              fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+              slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+              scaleIn: { '0%': { transform: 'scale(0.95)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } }
             }
           }
         }
       }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@200;300;400;500;600;800;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            margin: 0;
             background-color: #050505;
             color: #ffffff;
-            margin: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .glass {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .glass-dark {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .skeleton {
-            background: linear-gradient(90deg, #1a1a1a 25%, #333 50%, #1a1a1a 75%);
-            background-size: 1000px 100%;
-            animation: shimmer 2s infinite linear;
+        .hero-gradient {
+            background: linear-gradient(to bottom, transparent 0%, rgba(5,5,5,0.2) 60%, #050505 100%);
         }
-        .pulse-brand {
-            box-shadow: 0 0 0 0 rgba(209, 107, 27, 0.4);
-            animation: pulse-brand 2s infinite;
-        }
-        @keyframes pulse-brand {
-            0% { box-shadow: 0 0 0 0 rgba(209, 107, 27, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(209, 107, 27, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(209, 107, 27, 0); }
-        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D16B1B; }
     </style>
 </head>
-<body>
+<body class="transition-colors duration-500 selection:bg-brand-orange selection:text-white">
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
 </body>
